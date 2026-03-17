@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a1a;
+  --background-secondary: #2d2318;
+  --foreground: #f5f0e8;
+  --gold: #c9a84c;
+  --gold-light: #d4af37;
+  --gold-dark: #a8893a;
+  --ivory: #f5f0e8;
+  --dark-brown: #2d2318;
+  --card-bg: #242424;
+  --card-border: #3a3a3a;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-ivory: var(--ivory);
+  --color-dark-brown: var(--dark-brown);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-noto-sans);
+  --font-serif: var(--font-noto-serif);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Hiragino Sans", "Meiryo", sans-serif;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f5e6a3 40%, #c9a84c 60%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Monogram pattern background */
+.bg-monogram {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Gold border accent */
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #d4af37, #c9a84c, #d4af37) 1;
+}
+
+/* Article content styling */
+.article-content h2 {
+  font-family: var(--font-serif), serif;
+  color: var(--gold);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.article-content h3 {
+  font-family: var(--font-serif), serif;
+  color: var(--gold-light);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content p {
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+  color: var(--ivory);
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  color: var(--ivory);
+}
+
+.article-content strong {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.article-content blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(201, 168, 76, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+.article-content blockquote p {
+  margin-bottom: 0;
+  color: rgba(245, 240, 232, 0.85);
+}
+
+.article-content code {
+  background: rgba(201, 168, 76, 0.1);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
 }
